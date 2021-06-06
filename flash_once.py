@@ -73,6 +73,6 @@ class FlashOnce:
 if __name__ == '__main__':
     flasher = FlashOnce()
     flasher.run()
-    flasher.save_to_file()
+    # flasher.save_to_file()
 
     print(flasher.colored(75, 181, 67, f"Finished Flashing device on com port: {flasher.device._port.port}"))
