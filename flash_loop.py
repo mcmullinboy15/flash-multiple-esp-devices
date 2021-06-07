@@ -3,6 +3,9 @@ import subprocess as sp
 from threading import Thread
 
 
+# Clear the past devices that were flashed from the flashed.devices.json file
+open("flashed.devices.json", "w").close()
+
 threads = []
 for com in list(list_ports.comports()):
     print(":", com.device, ":")

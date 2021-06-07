@@ -49,27 +49,21 @@ class FlashOnce:
     def get_mac(self):
         return '%s' % (':'.join(map(lambda x: '%02x' % x, self.device.MAC_ADDRESS)))
 
-    def save_to_file(self, add_to_existing=True):
-        device_data = {
+    def save_to_file(self, include_existing=True):
+        DEVICES = {
             self.device._port.port: {
                 "NAME": f"{self.config['friendly_name']}_{self.get_mac().replace(':', '')[-6:].upper()}",
                 "MAC": self.get_mac(),
             }
         }
 
-        DEVICES = {}
-        if os.path.exists("flashed.devices.json"):
+        if os.path.exists("flashed.devices.json") and include_existing:
             with open("flashed.devices.json", "r") as read_flashed_file:
                 if os.stat("flashed.devices.json").st_size > 0:
-                    DEVICES = json.load(read_flashed_file)
-                DEVICES.update(device_data)
-        else:
-            DEVICES.update(device_data)
+                    DEVICES.update(json.load(read_flashed_file))
 
         with open("flashed.devices.json", "w") as write_flashed_file:
-            write_flashed_file.write(
-                json.dumps(DEVICES, indent=4)
-            )
+            write_flashed_file.write( json.dumps(DEVICES, indent=4) )
 
 
 if __name__ == '__main__':
