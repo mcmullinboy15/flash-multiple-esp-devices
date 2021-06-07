@@ -63,6 +63,8 @@ class FlashOnce:
                 if os.stat("flashed.devices.json").st_size > 0:
                     DEVICES = json.load(read_flashed_file)
                 DEVICES.update(device_data)
+        else:
+            DEVICES.update(device_data)
 
         with open("flashed.devices.json", "w") as write_flashed_file:
             write_flashed_file.write(
