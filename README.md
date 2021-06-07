@@ -18,6 +18,8 @@
       "friendly_name": "EZsalt"
     }
     ```
+##### Step 3: .bin file
++ As stated above don't forget to add your .bin file to the directory
 
 ## Running Script
 ```
