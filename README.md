@@ -3,10 +3,6 @@
 ## Requirements
   + For Python Requirements check the [requirements.txt](requirements.txt)
 
-## esptool.py - Modifications
-  + Added a return_array to get the esp Object from esptool.py
-  + Added the attribute MAC_ADDRESS to the esp Object that is returned
-
 ## Setup Steps
 ##### Step 1: Install Python dependencies
 + pip install -r requirements.txt
@@ -33,3 +29,7 @@ python flash_loop.py
 python flash_once.py COM3
 ```
 + This File takes the COM port as a command line argument to flash
+
+## esptool.py - Modifications
+  + Added a return_array to get the esp Object from esptool.py
+  + Added the attribute MAC_ADDRESS to the esp Object that is returned
